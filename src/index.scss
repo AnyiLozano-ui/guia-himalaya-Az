@@ -1,0 +1,19 @@
+@use "tailwindcss" as *;
+
+* {
+    font-family: 'Gilroy', sans-serif;
+}
+
+.helvetica {
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.rotated-img {
+  height: 100vh;
+  width: auto;
+
+  @media (min-width: 1025px) {
+    height: auto;
+    width: 100%;
+  }
+}
