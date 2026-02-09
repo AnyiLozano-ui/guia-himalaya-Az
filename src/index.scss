@@ -8,9 +8,13 @@
     font-family: 'Helvetica Neue', sans-serif;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 .rotated-img {
-  height: 100vh;
-  width: auto;
+  height: auto;
+  width: 100vw;
 
   @media (min-width: 1025px) {
     height: auto;
