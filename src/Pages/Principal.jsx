@@ -17,7 +17,8 @@ const Principal = () => {
 
 	// ✅ NUEVO: URL del PDF de Mipress (pon aquí la ruta real)
 	// Recomendado: guardar el PDF en /public/pdfs/mipress.pdf y usar "/pdfs/mipress.pdf"
-	const mipressPdfUrl = 'https://eml.com.co/guia-himalaya.eml.com.co/pdf/MDMp(CO) Paso a Paso MIPRES IMJUDO.pdf'
+	const mipressPdfUrl =
+		'https://eml.com.co/guia-himalaya.eml.com.co/pdf/MDMp(CO) Paso a Paso MIPRES IMJUDO.pdf'
 
 	const [openModal, setOpenModal] = useState(false)
 	const [modalContent, setModalContent] = useState({
@@ -58,7 +59,7 @@ const Principal = () => {
 			<div className="mt-[20px]">
 				<div className="mx-auto max-w-[90%]">
 					<h1 className="text-[#00ae9b] font-extrabold text-[40px] underline">
-						Cápsulas 
+						Cápsulas
 					</h1>
 					<div className="relative mt-10 flex gap-[10px] flex-wrap justify-center">
 						<div
@@ -158,12 +159,12 @@ const Principal = () => {
 							/>
 						) : isMipress ? (
 							// ✅ NUEVO: PDF más ancho para Mipress
-							<iframe
+							<embed
 								src={mipressPdfUrl}
-								title="Mipress PDF"
 								className="w-[95vw] max-w-[1200px] h-[85vh] [@media(max-width:500px)]:w-full [@media(max-width:500px)]:h-[85vh] bg-white [@media(max-width:500px)]:rounded-none"
-								style={{ border: 'none' }}
-							/>
+								type="application/pdf"
+								width="100%"
+								height="600"></embed>
 						) : (
 							<video
 								src={videos[type]}
@@ -180,7 +181,7 @@ const Principal = () => {
 			<div className="mt-[120px]">
 				{/* QR SECTION */}
 				<div className="flex justify-center items-center gap-[30px] flex-wrap">
-					<div className="relative font-semibold text-[16px]">
+					<div className="relative font-semibold text-[16px] justify-center items-center flex flex-col">
 						<p>Escanee el QR para ver IPP de IMJUDO®</p>
 						<div className="mt-[20px] shadow-[8px_8px_10px_rgba(0,0,0,.6)] w-[200px] flex justify-center items-center rounded-[47px] h-[200px] border-[4px] border-white bg-[#00ae9b]">
 							<img
@@ -191,7 +192,7 @@ const Principal = () => {
 						</div>
 					</div>
 
-					<div className="relative font-semibold text-[16px]">
+					<div className="relative font-semibold text-[16px] justify-center items-center flex flex-col">
 						<p>Escanee el QR para ver IPP de IMFINZI®</p>
 						<div className="mt-[20px] shadow-[8px_8px_10px_rgba(0,0,0,.6)] w-[200px] flex justify-center items-center rounded-[47px] h-[200px] border-[4px] border-white bg-[#00ae9b]">
 							<img
@@ -211,7 +212,9 @@ const Principal = () => {
 							handleOpenModal(
 								e,
 								'IPP IMFINZI Abreviada Colombia',
-								IPP_AB_IMFINZI_2025_COLOMBIA_FOOTER_HTML,
+								window.innerWidth > 800
+									? IPP_AB_IMFINZI_2025_COLOMBIA_FOOTER_HTML
+									: 'https://eml.com.co/guia-himalaya.eml.com.co/pdf/IPP AB IMFINZI 2025 Colombia.pdf',
 								'',
 								true, // ✅ NUEVO: este contenido es HTML
 							)
@@ -229,7 +232,9 @@ const Principal = () => {
 							handleOpenModal(
 								e,
 								'IPP IMJUDO Abreviada Colombia',
-								IPP_IMJUDO_Abreviada_Colombia_FOOTER_HTML,
+								window.innerWidth > 800
+									? IPP_IMJUDO_Abreviada_Colombia_FOOTER_HTML
+									: 'https://eml.com.co/guia-himalaya.eml.com.co/pdf/IMJUDO ABREVIADA IPP Colombia.pdf',
 								'',
 								true, // ✅ NUEVO: este contenido es HTML
 							)
@@ -247,7 +252,9 @@ const Principal = () => {
 							handleOpenModal(
 								e,
 								'IPP IMFINZI Completa Perú',
-								IPP_IMFINZI_PERU_FOOTER_HTML,
+								window.innerWidth > 800
+									? IPP_IMFINZI_PERU_FOOTER_HTML
+									: 'https://eml.com.co/guia-himalaya.eml.com.co/pdf/pdf24_converted.pdf',
 								'',
 								true, // ✅ NUEVO: este contenido es HTML
 							)
@@ -265,7 +272,9 @@ const Principal = () => {
 							handleOpenModal(
 								e,
 								'IPP IMJUDO Completa Perú',
-								IPP_IMJUDO_PERU_FOOTER_HTML,
+								window.innerWidth > 800
+									? IPP_IMJUDO_PERU_FOOTER_HTML
+									: 'https://eml.com.co/guia-himalaya.eml.com.co/pdf/IPP IMJUDO Completa Perú.pdf',
 								'',
 								true, // ✅ NUEVO: este contenido es HTML
 							)
@@ -286,13 +295,25 @@ const Principal = () => {
 								{modalContent.title}
 							</h2>
 							{modalContent.isHtml ? (
-								<p className="text-gray-700 text-[14px] leading-relaxed" dangerouslySetInnerHTML={{__html: modalContent.description}}></p>
+								window.innerWidth > 800 ? (
+									<p
+										className="text-gray-700 text-[14px] leading-relaxed"
+										dangerouslySetInnerHTML={{
+											__html: modalContent.description,
+										}}></p>
+								) : (
+									<embed
+										src={modalContent.description}
+										className="w-full h-[50vh]"
+										type="application/pdf"
+										width="100%"
+										height="600"></embed>
+								)
 							) : (
 								<p className="text-gray-700 text-[14px] leading-relaxed ">
-								{modalContent.description}
-							</p>
+									{modalContent.description}
+								</p>
 							)}
-							
 
 							<div className="flex justify-center mt-[25px]">
 								<button

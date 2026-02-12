@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { acceso, speaker, lanzamiento } from '../../api'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const AccessModal = ({ onClose, type }) => {
 	const router = useNavigate()
@@ -16,7 +17,10 @@ const AccessModal = ({ onClose, type }) => {
 				router('/principal')
 				onClose()
 			} else {
-				alert('Acceso denegado')
+				Swal.fire({
+					icon: 'error',
+					text: 'El usuario ingresado no esta autorizado para el ingreso'
+				})
 			}
 		} catch (error) {
 			console.error(error)
@@ -25,7 +29,7 @@ const AccessModal = ({ onClose, type }) => {
 
 	return (
 		<div className="bg-[rgba(0,0,0,.4)] fixed w-screen h-screen top-0 left-0 flex justify-center items-center">
-			<div className="rounded-lg bg-white p-10 min-w-[500px]">
+			<div className="rounded-lg bg-white p-10 md:min-w-[500px] max-w-[500px]">
 				<h1 className="text-center text-[25px]">
 					Ingresa tu numero de cedula
 				</h1>
