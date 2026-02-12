@@ -20,8 +20,8 @@ const Agenda = () => {
 		if (type === 'lanzamiento')
 			setImage(
 				landscape === 'mobile'
-					? '/images/agenda-starter.png'
-					: '/images/agenda-starter-desktop.png',
+					? '/images/agenda-starter.jpg'
+					: '/images/agenda-starter-desktop.jpg',
 			)
 		return null
 	}
@@ -56,39 +56,29 @@ const Agenda = () => {
 		<div className="[@media(max-width:1024px)]:h-screen [@media(max-width:1024px)]:flex [@media(max-width:1024px)]:items-center [@media(max-width:1024px)]:bg-black">
 			<div className="[@media(max-width:1024px)]:h-auto [@media(max-width:1024px)]:flex [@media(max-width:1024px)]:items-center my-auto [@media(max-width:1024px)]:w-screen h-full relative [@media(max-width:1024px)]:overflow-x-auto [@media(max-width:1024px)]:overflow-y-hidden">
 				<img src={image} className="rotated-img" />
-				{type === 'speaker' && type !== "lanzamiento" && window.innerWidth > 1024 ? (
+				{type === 'speaker' &&
+				type !== 'lanzamiento' &&
+				window.innerWidth > 1024 ? (
+					<></>
+				) : type === 'speaker' &&
+				  type !== 'lanzamiento' &&
+				  window.innerWidth < 1024 ? (
+					<></>
+				) : type === 'acceso' && window.innerWidth > 1024 ? (
 					<>
 						<img
 							src="/images/agenda-speaker-desktop-2.jpg"
 							className="rotated-img"
 						/>
-						<img
-							src="/images/agenda-starter-desktop.jpg"
-							className="rotated-img"
-						/>
 					</>
-				) : type === 'speaker' && type !== "lanzamiento" && window.innerWidth < 1024 ? (
+				) : type === 'acceso' && window.innerWidth < 1024 ? (
 					<>
 						<img
 							src="/images/agenda-speaker-2.jpg"
 							className="rotated-img"
 						/>
-						<img
-							src="/images/agenda-starter.jpg"
-							className="rotated-img"
-						/>
 					</>
-				) : type === 'acceso' && window.innerWidth > 1024 ? (
-                    <img
-						src="/images/agenda-starter-desktop.jpg"
-						className="rotated-img"
-					/>
-                ) : type === 'acceso' && window.innerWidth < 1024 ? (
-                    <img
-						src="/images/agenda-starter.jpg"
-						className="rotated-img"
-					/>
-                ) : null}
+				) : null}
 				<div
 					className="fixed top-6 border-solid border-white border-4 right-2 bg-[#00ae9b] w-10 h-10 rounded-full flex items-center justify-center cursor-pointer"
 					onClick={() => window.history.back()}>

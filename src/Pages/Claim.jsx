@@ -1,8 +1,35 @@
 import Menu from '../components/Menu/Menu'
+import { useState } from 'react'
+import { IPP_AB_IMFINZI_2025_COLOMBIA_FOOTER_HTML } from '../data/ippTexts'
+import { IPP_IMJUDO_Abreviada_Colombia_FOOTER_HTML } from '../data/ippTexts1'
+import { IPP_IMFINZI_PERU_FOOTER_HTML } from '../data/imfinziperu'
+import { IPP_IMJUDO_PERU_FOOTER_HTML } from '../data/IMJUDO'
 
 const Claim = () => {
+	// ======================
+	// MODAL STATE & HANDLERS
+	// ======================
+	const [openModal, setOpenModal] = useState(false)
+	const [modalContent, setModalContent] = useState({
+		title: '',
+		description: '',
+		link: '',
+		isHtml: false, // ✅ NUEVO
+	})
+
+	const handleOpenModal = (e, title, description, link, isHtml = false) => {
+		e.preventDefault()
+		setModalContent({ title, description, link, isHtml })
+		setOpenModal(true)
+	}
+
+	const handleCloseModal = () => {
+		setOpenModal(false)
+	}
+
 	return (
 		<div>
+			{/* HEADER */}
 			<div className="min-h-150 bg-[url('/images/himalaya.png')] bg-cover bg-center bg-top">
 				<p className="absolute top-[5px] text-white right-[20px] font-bold">
 					{localStorage.getItem('type') === 'acceso'
@@ -12,7 +39,7 @@ const Claim = () => {
 							: 'Lanzamiento'}
 				</p>
 				<Menu />
-				<div className="flex items-center justify-end items-end mr-10 pt-10">
+				<div className="flex items-center justify-end mr-10 pt-10">
 					<img
 						src="/images/logo.png"
 						alt="Aztrazeneca"
@@ -21,37 +48,47 @@ const Claim = () => {
 				</div>
 			</div>
 
+			{/* CONTENT */}
 			<div className="mt-[40px]">
+				{/* QR SECTION */}
 				<div className="flex justify-center items-center gap-[30px] flex-wrap">
 					<div className="relative font-semibold text-[16px]">
 						<p>Escanee el QR para ver IPP de IMJUDO®</p>
-						<div className="mt-[20px] shadow-[8px_8px_10px_rgba(0,0,0,.6)] w-[300px] flex justify-center items-center rounded-[47px] h-[300px] border-[4px] border-white border-solid bg-[#00ae9b]">
+						<div className="mt-[20px] shadow-[8px_8px_10px_rgba(0,0,0,.6)] w-[200px] flex justify-center items-center rounded-[47px] h-[200px] border-[4px] border-white bg-[#00ae9b]">
 							<img
 								src="/images/IMJUDO IPP.png"
 								alt="Acceso"
-								width={220}
+								width={130}
 							/>
 						</div>
 					</div>
 
 					<div className="relative font-semibold text-[16px]">
-						<p>Escanee el QR para ver IPP de IMJUDO®</p>
-						<div className="mt-[20px] shadow-[8px_8px_10px_rgba(0,0,0,.6)] w-[300px] flex justify-center items-center rounded-[47px] h-[300px] border-[4px] border-white border-solid bg-[#00ae9b]">
+						<p>Escanee el QR para ver IPP de IMFINZI®</p>
+						<div className="mt-[20px] shadow-[8px_8px_10px_rgba(0,0,0,.6)] w-[200px] flex justify-center items-center rounded-[47px] h-[200px] border-[4px] border-white bg-[#00ae9b]">
 							<img
 								src="/images/IPP IMFINZI COMPLETA.jpeg"
 								alt="Acceso"
-								width={220}
+								width={130}
 							/>
 						</div>
 					</div>
 				</div>
 
+				{/* BUTTONS */}
 				<div className="flex justify-center items-center gap-[10px] my-[50px] flex-wrap">
 					<a
-						href="https://eml.com.co/guia-himalaya.eml.com.co/pdf/IPP%20AB%20IMFINZI%202025%20Colombia.pdf"
-						target="_blank"
-						rel="noopener noreferrer">
-						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[320px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white border-solid bg-[#00ae9b]">
+						href="#"
+						onClick={(e) =>
+							handleOpenModal(
+								e,
+								'IPP IMFINZI Abreviada Colombia',
+								IPP_AB_IMFINZI_2025_COLOMBIA_FOOTER_HTML,
+								'',
+								true, // ✅ NUEVO: este contenido es HTML
+							)
+						}>
+						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[320px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white bg-[#00ae9b]">
 							<p className="text-white text-[20px]">
 								IPP IMFINZI Abreviada Colombia
 							</p>
@@ -59,10 +96,17 @@ const Claim = () => {
 					</a>
 
 					<a
-						href="https://eml.com.co/guia-himalaya.eml.com.co/pdf/IMJUDO%20ABREVIADA%20IPP%20Colombia.pdf"
-						target="_blank"
-						rel="noopener noreferrer">
-						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[350px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white border-solid bg-[#00ae9b]">
+						href="#"
+						onClick={(e) =>
+							handleOpenModal(
+								e,
+								'IPP IMJUDO Abreviada Colombia',
+								IPP_IMJUDO_Abreviada_Colombia_FOOTER_HTML,
+								'',
+								true, // ✅ NUEVO: este contenido es HTML
+							)
+						}>
+						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[350px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white bg-[#00ae9b]">
 							<p className="text-white text-[20px]">
 								IPP IMJUDO Abreviada Colombia
 							</p>
@@ -70,10 +114,17 @@ const Claim = () => {
 					</a>
 
 					<a
-						href="https://eml.com.co/guia-himalaya.eml.com.co/pdf/IPP%20IMFINZI%20Completa%20Peru%CC%81.pdf"
-						target="_blank"
-						rel="noopener noreferrer">
-						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[300px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white border-solid bg-[#00ae9b]">
+						href="#"
+						onClick={(e) =>
+							handleOpenModal(
+								e,
+								'IPP IMFINZI Completa Perú',
+								IPP_IMFINZI_PERU_FOOTER_HTML,
+								'',
+								true, // ✅ NUEVO: este contenido es HTML
+							)
+						}>
+						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[300px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white bg-[#00ae9b]">
 							<p className="text-white text-[20px]">
 								IPP IMFINZI Completa Perú
 							</p>
@@ -81,16 +132,50 @@ const Claim = () => {
 					</a>
 
 					<a
-						href="https://eml.com.co/guia-himalaya.eml.com.co/pdf/IPP%20IMJUDO%20Completa%20Peru%CC%81.pdf"
-						target="_blank"
-						rel="noopener noreferrer">
-						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[300px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white border-solid bg-[#00ae9b]">
+						href="#"
+						onClick={(e) =>
+							handleOpenModal(
+								e,
+								'IPP IMJUDO Completa Perú',
+								IPP_IMJUDO_PERU_FOOTER_HTML,
+								'',
+								true, // ✅ NUEVO: este contenido es HTML
+							)
+						}>
+						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[300px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white bg-[#00ae9b]">
 							<p className="text-white text-[20px]">
 								IPP IMJUDO Completa Perú
 							</p>
 						</div>
 					</a>
 				</div>
+
+				{/* MODAL */}
+				{openModal && (
+					<div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+						<div className="bg-white rounded-[20px] p-[30px] w-[90%] max-w-[800px] max-h-[80vh] overflow-y-auto">
+							<h2 className="text-[22px] font-bold mb-[15px] text-center">
+								{modalContent.title}
+							</h2>
+							{modalContent.isHtml ? (
+								<p className="text-gray-700 text-[14px] leading-relaxed" dangerouslySetInnerHTML={{__html: modalContent.description}}></p>
+							) : (
+								<p className="text-gray-700 text-[14px] leading-relaxed ">
+								{modalContent.description}
+							</p>
+							)}
+							
+
+							<div className="flex justify-center mt-[25px]">
+								<button
+									onClick={handleCloseModal}
+									className="bg-[#00ae9b] cursor-pointer text-white px-[25px] py-[10px] rounded-[10px]">
+									Cerrar
+								</button>
+							</div>
+						</div>
+					</div>
+				)}
 
 				{/* FOOTER */}
 				<div className="w-full bg-[#f18f1c] px-6 py-10 mt-6">
@@ -180,7 +265,6 @@ const Claim = () => {
 						</div>
 					</div>
 				</div>
-				{/* /FOOTER */}
 			</div>
 		</div>
 	)
