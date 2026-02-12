@@ -182,7 +182,7 @@ const Claim = () => {
 					<div className="max-w-[1400px] mx-auto">
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
 							{/* Colombia */}
-							<div className="text-white text-[12px] md:text-[13px] leading-[1.35] font-semibold text-justify break-words hyphens-auto">
+							<div className="text-white text-[12px] md:text-[10px] leading-[1.35] font-semibold text-justify break-words hyphens-auto">
 								MIFINJ 50 mg/mL (Colombia). Registro sanitario:
 								INVIMA 2019MB-0019214. MIJUDO 20 mg/mL
 								(Colombia). Registro sanitario: INVIMA
@@ -227,40 +227,42 @@ const Claim = () => {
 							</div>
 
 							{/* Perú */}
-							<div className="text-white text-[12px] md:text-[13px] leading-[1.35] font-semibold text-justify break-words hyphens-auto md:border-l md:border-white md:pl-10 flex flex-col justify-center">
-								IMFINZI 50 mg/mL (Perú). Registro sanitario:
-								BE-01202. IMJUDO® 20 mg/mL (Perú). Registro
-								sanitario: BE-01313. Material exclusivo para el
-								profesional de la salud. Información aplicable a
-								Perú. Mayor información Departamento Médico
-								AstraZeneca Perú. En caso de evento adverso
-								ingrese a{' '}
-								<a
-									href="https://aereporting.astrazeneca.com"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="underline break-all">
-									https://aereporting.astrazeneca.com
-								</a>{' '}
-								y seleccione en país Perú, o escriba al correo
-								electrónico{' '}
-								<a
-									href="mailto:PatientsSafety.Peru@astrazeneca.com"
-									className="underline">
-									PatientsSafety.Peru@astrazeneca.com
-								</a>
-								. Link de Data Privacy para reporte de eventos
-								adversos:{' '}
-								<a
-									href="https://bit.ly/35p2CFr"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="underline">
-									https://bit.ly/35p2CFr
-								</a>
-								. AstraZeneca Perú S.A., Calle Las Orquídeas
-								675, Interior 802, San Isidro, Lima-Perú, tel.:
-								610515 RUC 20513645547.
+							<div className="text-white text-[12px] flex md:text-[10px] leading-[1.35] font-semibold text-justify break-words hyphens-auto md:border-l md:border-white md:pl-10 flex flex-col justify-center">
+								<p>
+									IMFINZI 50 mg/mL (Perú). Registro sanitario:
+									BE-01202. IMJUDO® 20 mg/mL (Perú). Registro
+									sanitario: BE-01313. Material exclusivo para
+									el profesional de la salud. Información
+									aplicable a Perú. Mayor información
+									Departamento Médico AstraZeneca Perú. En
+									caso de evento adverso ingrese a
+									<a
+										href="https://aereporting.astrazeneca.com"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="underline break-all">
+										https://aereporting.astrazeneca.com
+									</a>{' '}
+									y seleccione en país Perú, o escriba al
+									correo electrónico{' '}
+									<a
+										href="mailto:PatientsSafety.Peru@astrazeneca.com"
+										className="underline">
+										PatientsSafety.Peru@astrazeneca.com
+									</a>
+									. Link de Data Privacy para reporte de
+									eventos adversos:{' '}
+									<a
+										href="https://bit.ly/35p2CFr"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="underline">
+										https://bit.ly/35p2CFr
+									</a>
+									. AstraZeneca Perú S.A., Calle Las Orquídeas
+									675, Interior 802, San Isidro, Lima-Perú,
+									tel.: 610515 RUC 20513645547.
+								</p>
 							</div>
 						</div>
 					</div>
