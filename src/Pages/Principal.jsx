@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import Menu from '../components/Menu/Menu'
 import { videos } from '../api'
+import { IPP_AB_IMFINZI_2025_COLOMBIA_FOOTER_HTML } from '../data/ippTexts'
+import { IPP_IMJUDO_Abreviada_Colombia_FOOTER_HTML } from '../data/ippTexts1'
+import { IPP_IMFINZI_PERU_FOOTER_HTML } from '../data/imfinziperu'
+import { IPP_IMJUDO_PERU_FOOTER_HTML } from '../data/IMJUDO'
 
 const Principal = () => {
 	const [type, setType] = useState(0)
@@ -22,9 +26,9 @@ const Principal = () => {
 		link: '',
 	})
 
-	const handleOpenModal = (e, title, description, link) => {
+	const handleOpenModal = (e, title, description, link, isHtml = false) => {
 		e.preventDefault()
-		setModalContent({ title, description, link })
+		setModalContent({ title, description, link, isHtml })
 		setOpenModal(true)
 	}
 
@@ -207,8 +211,9 @@ const Principal = () => {
 							handleOpenModal(
 								e,
 								'IPP IMFINZI Abreviada Colombia',
-								// IPP_AB_IMFINZI_2025_COLOMBIA,'',
+								IPP_AB_IMFINZI_2025_COLOMBIA_FOOTER_HTML,
 								'',
+								true, // ✅ NUEVO: este contenido es HTML
 							)
 						}>
 						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[320px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white bg-[#00ae9b]">
@@ -224,10 +229,9 @@ const Principal = () => {
 							handleOpenModal(
 								e,
 								'IPP IMJUDO Abreviada Colombia',
-								`Información Para Prescribir (IPP) abreviada de IMJUDO® para Colombia.
-
-Documento informativo con indicaciones clínicas, esquema de administración y consideraciones de seguridad.`,
+								IPP_IMJUDO_Abreviada_Colombia_FOOTER_HTML,
 								'',
+								true, // ✅ NUEVO: este contenido es HTML
 							)
 						}>
 						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[350px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white bg-[#00ae9b]">
@@ -243,10 +247,9 @@ Documento informativo con indicaciones clínicas, esquema de administración y c
 							handleOpenModal(
 								e,
 								'IPP IMFINZI Completa Perú',
-								`Documento completo de Información Para Prescribir (IPP) de IMFINZI® aplicable a Perú.
-
-Incluye farmacología, estudios clínicos, reacciones adversas y advertencias completas.`,
+								IPP_IMFINZI_PERU_FOOTER_HTML,
 								'',
+								true, // ✅ NUEVO: este contenido es HTML
 							)
 						}>
 						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[300px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white bg-[#00ae9b]">
@@ -262,10 +265,9 @@ Incluye farmacología, estudios clínicos, reacciones adversas y advertencias co
 							handleOpenModal(
 								e,
 								'IPP IMJUDO Completa Perú',
-								`Información Para Prescribir (IPP) completa de IMJUDO® para Perú.
-
-Documento exclusivo para profesionales de la salud.`,
+								IPP_IMJUDO_PERU_FOOTER_HTML,
 								'',
+								true, // ✅ NUEVO: este contenido es HTML
 							)
 						}>
 						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[300px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white bg-[#00ae9b]">
@@ -279,19 +281,23 @@ Documento exclusivo para profesionales de la salud.`,
 				{/* MODAL */}
 				{openModal && (
 					<div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-						<div className="bg-white rounded-[20px] p-[30px] w-[90%] max-w-[700px] max-h-[80vh] overflow-y-auto">
+						<div className="bg-white rounded-[20px] p-[30px] w-[90%] max-w-[800px] max-h-[80vh] overflow-y-auto">
 							<h2 className="text-[22px] font-bold mb-[15px] text-center">
 								{modalContent.title}
 							</h2>
-
-							<p className="text-gray-700 text-[14px] leading-relaxed whitespace-pre-line">
+							{modalContent.isHtml ? (
+								<p className="text-gray-700 text-[14px] leading-relaxed" dangerouslySetInnerHTML={{__html: modalContent.description}}></p>
+							) : (
+								<p className="text-gray-700 text-[14px] leading-relaxed ">
 								{modalContent.description}
 							</p>
+							)}
+							
 
 							<div className="flex justify-center mt-[25px]">
 								<button
 									onClick={handleCloseModal}
-									className="bg-[#00ae9b] text-white px-[25px] py-[10px] rounded-[10px]">
+									className="bg-[#00ae9b] cursor-pointer text-white px-[25px] py-[10px] rounded-[10px]">
 									Cerrar
 								</button>
 							</div>
