@@ -31,7 +31,7 @@ const AccessModal = ({ onClose, type }) => {
 		<div className="bg-[rgba(0,0,0,.4)] fixed w-screen h-screen top-0 left-0 flex justify-center items-center">
 			<div className="rounded-lg bg-white p-10 md:min-w-[500px] max-w-[500px]">
 				<h1 className="text-center text-[25px]">
-					Ingresa tu numero de cedula
+					Ingresa tu numero de cédula
 				</h1>
 				<input
 					className="border-solid border-1 border-black rounded-lg mt-4.5 w-full h-11.25 px-2.5"

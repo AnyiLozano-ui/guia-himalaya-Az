@@ -69,7 +69,7 @@ const SatisfactionTest = () => {
 				{/* QR SECTION */}
 				<div className="flex justify-center items-center gap-[30px] flex-wrap">
 					<div className="relative font-semibold text-[16px] justify-center items-center flex flex-col">
-						<p>Escanee el QR para ver IPP de IMJUDO®</p>
+						<p>Escanee el QR para ver IPP de IMJUDO<sup style={{fontSize:"8px"}}>®</sup></p>
 						<div className="mt-[20px] shadow-[8px_8px_10px_rgba(0,0,0,.6)] w-[200px] flex justify-center items-center rounded-[47px] h-[200px] border-[4px] border-white bg-[#00ae9b]">
 							<img
 								src="/images/IMJUDO IPP.png"
@@ -80,7 +80,7 @@ const SatisfactionTest = () => {
 					</div>
 
 					<div className="relative font-semibold text-[16px] justify-center items-center flex flex-col">
-						<p>Escanee el QR para ver IPP de IMFINZI®</p>
+						<p>Escanee el QR para ver IPP de IMFINZI<sup style={{fontSize:"8px"}}>®</sup></p>
 						<div className="mt-[20px] shadow-[8px_8px_10px_rgba(0,0,0,.6)] w-[200px] flex justify-center items-center rounded-[47px] h-[200px] border-[4px] border-white bg-[#00ae9b]">
 							<img
 								src="/images/IPP IMFINZI COMPLETA.jpeg"
@@ -107,8 +107,8 @@ const SatisfactionTest = () => {
 							)
 						}>
 						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[320px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white bg-[#00ae9b]">
-							<p className="text-white text-[20px]">
-								IPP IMFINZI Abreviada Colombia
+							<p className="text-white text-[18px]">
+								IPP IMFINZI<sup>®</sup> abreviada Colombia
 							</p>
 						</div>
 					</a>
@@ -127,8 +127,8 @@ const SatisfactionTest = () => {
 							)
 						}>
 						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[350px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white bg-[#00ae9b]">
-							<p className="text-white text-[20px]">
-								IPP IMJUDO Abreviada Colombia
+							<p className="text-white text-[18px]">
+								IPP IMJUDO<sup>®</sup> abreviada Colombia
 							</p>
 						</div>
 					</a>
@@ -147,8 +147,8 @@ const SatisfactionTest = () => {
 							)
 						}>
 						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[300px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white bg-[#00ae9b]">
-							<p className="text-white text-[20px]">
-								IPP IMFINZI Completa Perú
+							<p className="text-white text-[18px]">
+								IPP IMFINZI<sup>®</sup> completa Perú
 							</p>
 						</div>
 					</a>
@@ -167,8 +167,8 @@ const SatisfactionTest = () => {
 							)
 						}>
 						<div className="shadow-[8px_8px_10px_rgba(0,0,0,.5)] w-[300px] flex justify-center items-center rounded-[20px] h-[60px] border-[4px] border-white bg-[#00ae9b]">
-							<p className="text-white text-[20px]">
-								IPP IMJUDO Completa Perú
+							<p className="text-white text-[18px]">
+								IPP IMJUDO<sup>®</sup> completa Perú
 							</p>
 						</div>
 					</a>
@@ -219,7 +219,7 @@ const SatisfactionTest = () => {
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
 							{/* Colombia */}
 							<div className="text-white text-[12px] md:text-[10px] leading-[1.35] font-semibold text-justify break-words hyphens-auto">
-								MIFINJ 50 mg/mL (Colombia). Registro sanitario:
+								IMFINZI 50 mg/mL (Colombia). Registro sanitario:
 								INVIMA 2019MB-0019214. MIJUDO 20 mg/mL
 								(Colombia). Registro sanitario: INVIMA
 								2025MB-0000140. Material dirigido al cuerpo
@@ -265,7 +265,7 @@ const SatisfactionTest = () => {
 							{/* Perú */}
 							<div className="text-white text-[12px] flex md:text-[10px] leading-[1.35] font-semibold text-justify break-words hyphens-auto md:border-l md:border-white md:pl-10 flex flex-col justify-center">
 								<p>
-									IMFINZI 50 mg/mL (Perú). Registro sanitario:
+									IMJUDO 50 mg/mL (Perú). Registro sanitario:
 									BE-01202. IMJUDO® 20 mg/mL (Perú). Registro
 									sanitario: BE-01313. Material exclusivo para
 									el profesional de la salud. Información
