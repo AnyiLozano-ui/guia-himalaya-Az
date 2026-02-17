@@ -590,6 +590,9 @@ export const acceso = [
     {
 		cedula: '52157157',
 	},
+    {
+		cedula: '79983288',
+	},
 ]
 
 export const speaker = [
@@ -1851,6 +1854,9 @@ export const lanzamiento = [
 	},
 	{
 		cedula: '43567469',
+	},
+    {
+		cedula: '79983288',
 	},
 ]
 
